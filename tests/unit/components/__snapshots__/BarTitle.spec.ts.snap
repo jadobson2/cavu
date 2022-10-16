@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BarTitle renders correctly 1`] = `
+<header
+  class="sticky top-0 flex items-center md:mb-3 px-8 xl:px-14 py-6 lg:py-8 bg-radial-gradient-yellow"
+>
+  <img
+    src="foo.svg"
+  />
+   
+  <h1
+    class="text-4xl lg:text-5xl font-bold not-first:ml-8"
+  >
+    Title
+  </h1>
+</header>
+`;

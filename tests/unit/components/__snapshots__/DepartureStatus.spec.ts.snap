@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DepartureStatus renders correctly 1`] = `
+<div
+  class="departure-status inline-flex w-fit rounded-l-lg rounded-r-3xl departure-status--departed"
+>
+  <span
+    class="block ml-3 pl-4 pr-7 py-2 rounded-l-lg rounded-r-3xl bg-white"
+  >
+    
+  Departed 10:45
+
+  </span>
+</div>
+`;

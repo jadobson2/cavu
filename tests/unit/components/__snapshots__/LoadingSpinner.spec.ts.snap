@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoadingSpinner renders correctly 1`] = `
+<div
+  class="w-14 h-14 my-14 mx-auto"
+>
+  <img
+    alt="Loading spinner"
+    class="animate-spin"
+    src="../assets/icons/spinner.svg"
+  />
+</div>
+`;

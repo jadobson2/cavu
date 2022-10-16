@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BackgroundContainer renders correctly 1`] = `
+<main
+  class="px-8 xl:px-14 py-5 bg-gradient-to-r from-greyscale-80 to-black"
+>
+  <div>
+    Foo
+  </div>
+</main>
+`;
