@@ -6,21 +6,18 @@
 
 <style lang="scss">
 html, body, #app {
-  display: flex;
-  width: 100%;
+  @apply flex w-full;
 }
 
 html {
-  min-height: 100%;
+  @apply min-h-full;
 }
 
 body {
-  flex: 1;
+  @apply flex-1;
 }
 
 #app {
-  font-family: Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @apply font-display antialiased;
 }
 </style>

@@ -17,11 +17,9 @@ const departures = {
     setDepartures (state: DeparturesState, departures: Departure[]) {
       state.departures = departures
     },
-
     setError (state: DeparturesState, message: string) {
       state.error = message
     },
-
     setLoading (state: DeparturesState, loading: boolean) {
       state.loading = loading
     }

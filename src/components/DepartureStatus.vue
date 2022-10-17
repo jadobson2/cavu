@@ -36,6 +36,8 @@ export default Vue.extend({
 .departure-status {
   $statuses: (
     boarding: (theme('colors.green'), theme('colors.green')),
+    cancelled: (theme('colors.red'), theme('colors.red')),
+    delayed: (theme('colors.red'), theme('colors.red')),
     departed: (theme('colors.green'), theme('colors.green')),
     gate-closed: (theme('colors.yellow.DEFAULT'), theme('colors.greyscale.90')),
     gate-closing: (theme('colors.orange'), theme('colors.orange')),

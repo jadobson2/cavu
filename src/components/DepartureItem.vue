@@ -10,6 +10,9 @@
     <span data-label="Departure time:">{{ departureTime }}</span>
     <span class="text-yellow" data-label="City name:">
       {{ departure.arrivalAirport.cityName }}
+      <span class="block mt-1 md:mt-0 md:text-sm text-white" data-label="Country:">
+        {{ departure.arrivalAirport.countryName }}
+      </span>
     </span>
     <span data-label="Code:">{{ departure.arrivalAirport.code }}</span>
     <span data-label="Airline:">{{ departure.airline.name }}</span>

@@ -36,11 +36,17 @@
       <input v-model="statusOther" class="form-input" id="update-status-other"/>
     </div>
     <p
-      v-if="success"
+      v-if="updated"
       class="mb-4 lg:mb-6 text-green font-bold"
       data-test="success-notice"
     >
       Departure updated successfully.
+      <button
+        type="button"
+        class="inline m-0 p-0 text-base underline hover:no-underline"
+        data-test="view-departure-button"
+        @click="$emit('view', updated)"
+      >View departure</button>
     </p>
     <p
       v-if="error"
@@ -85,7 +91,7 @@ export default Vue.extend({
       status: null as DepartureStatusOptions | null,
       statusOther: null as string | null,
       statusOptions: Object.values(DepartureStatusOptions),
-      success: false
+      updated: null as string | null
     }
   },
   computed: {
@@ -97,7 +103,7 @@ export default Vue.extend({
       return this.status === DepartureStatusOptions.OTHER
     },
     hasNotice (): boolean {
-      return !!this.error || this.success
+      return !!this.error || !!this.updated
     }
   },
   watch: {
@@ -119,7 +125,7 @@ export default Vue.extend({
       })
 
       if (updated) {
-        this.success = true
+        this.updated = this.flightNumber
         this.reset()
       } else {
         this.error = 'An error occurred updating the departure.'
@@ -132,7 +138,7 @@ export default Vue.extend({
     },
     resetNotices () {
       this.error = ''
-      this.success = false
+      this.updated = null
     }
   }
 })

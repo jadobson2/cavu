@@ -30,11 +30,12 @@
           <DepartureItem
             v-for="departure in departures"
             :key="departure.flightNumber"
+            :ref="`departure-${departure.flightNumber}`"
             :departure="departure"
           />
         </div>
 
-        <DeparturesForm class="px-8 py-4 xl:px-14"/>
+        <DeparturesForm class="px-8 py-4 xl:px-14" @view="viewDeparture"/>
       </template>
 
       <p
@@ -74,7 +75,12 @@ export default Vue.extend({
     this.getDepartures()
   },
   methods: {
-    ...mapActions('departures', ['getDepartures'])
+    ...mapActions('departures', ['getDepartures']),
+    viewDeparture (flightNumber: string) {
+      // @ts-ignore
+      const element: Element = this.$refs[`departure-${flightNumber}`]?.[0].$el
+      element.scrollIntoView()
+    }
   }
 })
 </script>

@@ -56,6 +56,7 @@ describe('DeparturesForm', () => {
     // @ts-ignore
     expect(statusSelect.element.value).toBe('')
     /* eslint-enable @typescript-eslint/ban-ts-comment */
+    expect(wrapper.vm.updated).toBe('AF1669')
   })
 
   test('update failed', async () => {
@@ -90,7 +91,7 @@ describe('DeparturesForm', () => {
   describe('flight number change', () => {
     it('resets success notice if set', async () => {
       const wrapper = setup()
-      await wrapper.setData({ success: true })
+      await wrapper.setData({ updated: 'AF1669' })
       await wrapper.find('#update-flight').find('option[value="AF1669"]').setSelected()
 
       expect(wrapper.find('[data-test="success-notice"]').exists()).toBe(false)
@@ -120,7 +121,7 @@ describe('DeparturesForm', () => {
 
     it('resets success notice if set', async () => {
       const wrapper = setup()
-      await wrapper.setData({ success: true })
+      await wrapper.setData({ updated: 'AF1669' })
       await wrapper.find('#update-status').find('option[value="Departed"]').setSelected()
 
       expect(wrapper.find('[data-test="success-notice"]').exists()).toBe(false)
@@ -132,6 +133,19 @@ describe('DeparturesForm', () => {
       await wrapper.find('#update-status').find('option[value="Departed"]').setSelected()
 
       expect(wrapper.find('[data-test="success-error"]').exists()).toBe(false)
+    })
+  })
+
+  describe('updated', () => {
+    test('view departure', async () => {
+      const wrapper = setup()
+      await wrapper.find('#update-flight').find('option[value="AF1669"]').setSelected()
+      await wrapper.find('#update-status').find('option[value="Departed"]').setSelected()
+      wrapper.find('[data-test="update-button"]').vm.$emit('click')
+      await flushPromises()
+      await wrapper.find('[data-test="view-departure-button"]').trigger('click')
+
+      expect(wrapper.emitted().view?.[0][0]).toBe('AF1669')
     })
   })
 })

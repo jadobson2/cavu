@@ -24,6 +24,9 @@ module.exports = {
         },
         blue: '#3677F5',
         red: '#D63031'
+      },
+      fontFamily: {
+        display: ['Helvetica', 'Arial', 'sans-serif']
       }
     }
   },

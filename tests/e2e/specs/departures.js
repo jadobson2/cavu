@@ -6,7 +6,7 @@ describe('Departures', () => {
     cy.get('[data-test="departure"]').its('length').should('be.gt', 0)
   })
 
-  it('updates a flight status to a pre-defined option', () => {
+  it('updates a flight status to a pre-defined value', () => {
     cy.visit('/')
     cy.get('#update-flight').select(1)
     cy.get('#update-status').select('Cancelled')
@@ -29,5 +29,14 @@ describe('Departures', () => {
       .first()
       .find('[data-test="departure-status"]')
       .contains('Other status')
+  })
+
+  it('scrolls to updated departure', () => {
+    cy.visit('/')
+    cy.get('#update-flight').select(1)
+    cy.get('#update-status').select('Cancelled')
+    cy.get('[data-test="update-button"]').click()
+    cy.get('[data-test="view-departure-button"]').click()
+    cy.isInViewport('[data-test="departure"]:first-child')
   })
 })

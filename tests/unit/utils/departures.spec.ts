@@ -4,6 +4,8 @@ describe('utils/departures', () => {
   describe('getStatus', () => {
     test.each([
       ['Boarding', 'BOARDING'],
+      ['Cancelled', 'CANCELLED'],
+      ['Delayed', 'DELAYED'],
       ['Departed 10:49', 'DEPARTED'],
       ['Final Call - Gate 31', 'GATE_CLOSING'],
       ['Go to Gate 204', 'GATE_OPEN'],

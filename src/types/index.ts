@@ -41,6 +41,8 @@ export interface Departure {
 
 export enum DepartureStatusCode {
   BOARDING = 'BOARDING',
+  CANCELLED = 'CANCELLED',
+  DELAYED = 'DELAYED',
   DEPARTED = 'DEPARTED',
   GATE_CLOSED = 'GATE_CLOSED',
   GATE_CLOSING = 'GATE_CLOSING',
