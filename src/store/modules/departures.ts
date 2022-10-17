@@ -40,6 +40,24 @@ const departures = {
       } finally {
         commit('setLoading', false)
       }
+    },
+    updateDeparture (
+      { commit, state }: { commit: Commit, state: DeparturesState },
+      update: { flightNumber: string, status: string }
+    ): boolean {
+      const departures = [...state.departures]
+      const departure = departures.find((departure) => {
+        return departure.flightNumber === update.flightNumber
+      })
+      if (!departure) return false
+      departures[departures.indexOf(departure)] = {
+        ...departure,
+        status: update.status
+      }
+
+      commit('setDepartures', departures)
+
+      return true
     }
   }
 }

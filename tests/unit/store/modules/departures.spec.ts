@@ -1,44 +1,12 @@
 import departures from '@/store/modules/departures'
 import * as departuresService from '@/services/departures'
+import { departure } from 'tests/unit/fixtures/departures'
 
 describe('store/modules/departures', () => {
   const defaultState = {
     departures: [],
     error: '',
     loading: false
-  }
-
-  const departure = {
-    flightDirection: 'departure',
-    scheduledDepartureDateTime: '2022-08-22T10:30:00',
-    scheduledArrivalDateTime: '2022-08-22T01:00:00',
-    estimatedDepartureDateTime: '2022-08-22T10:51:00',
-    actualDepartureDateTime: '2022-08-22T10:49:00',
-    arrivalAirport: {
-      name: 'Charles de Gaulle Airport',
-      cityName: 'Paris',
-      countryName: 'France',
-      code: 'CDG'
-    },
-    departureAirport: {
-      name: 'Manchester Airport',
-      cityName: 'Manchester',
-      countryName: 'United Kingdom',
-      code: 'MAN'
-    },
-    flightNumber: 'AF1669',
-    airline: {
-      name: 'Air France',
-      code: 'AF'
-    },
-    departureGate: {
-      name: 'Gate A5',
-      number: 'A5',
-      action: 'Final Call'
-    },
-    arrivalTerminal: null,
-    departureTerminal: '2',
-    status: 'Departed 10:49'
   }
 
   describe('mutations', () => {
@@ -90,6 +58,28 @@ describe('store/modules/departures', () => {
         expect(context.commit).toHaveBeenCalledWith('setLoading', true)
         expect(context.commit).toHaveBeenCalledWith('setError', 'An error occurred getting departures.')
         expect(context.commit).toHaveBeenCalledWith('setLoading', false)
+      })
+    })
+
+    describe('updateDeparture', () => {
+      it('updates departure', () => {
+        const state = { ...defaultState, departures: [departure] }
+        const context = { commit: jest.fn(), state }
+        const update = { flightNumber: 'AF1669', status: 'New status' }
+        departures.actions.updateDeparture(context, update)
+
+        expect(context.commit).toHaveBeenCalledWith('setDepartures', [
+          { ...departure, status: 'New status' }
+        ])
+      })
+
+      test('departure does not exist', () => {
+        const state = { ...defaultState, departures: [departure] }
+        const context = { commit: jest.fn(), state }
+        const update = { flightNumber: 'AF1670', status: 'New status' }
+        departures.actions.updateDeparture(context, update)
+
+        expect(context.commit).not.toHaveBeenCalled()
       })
     })
   })

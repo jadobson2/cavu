@@ -1,0 +1,8 @@
+.form-label {
+  @apply block font-bold mb-1;
+}
+
+.form-input {
+  @apply block border-2 border-greyscale-10 focus:outline-yellow w-full
+    px-4 py-3 rounded-md font-bold;
+}

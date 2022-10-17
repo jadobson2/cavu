@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import DeparturesView from '../views/DeparturesView.vue'
+import DeparturesView from '@/views/DeparturesView.vue'
 
 Vue.use(VueRouter)
 

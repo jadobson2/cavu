@@ -26,16 +26,25 @@
           <span class="hidden lg:inline">Status</span>
         </header>
 
-        <DepartureItem
-          v-for="departure in departures"
-          :key="departure.flightNumber"
-          :departure="departure"
-        />
+        <div class="mb-6">
+          <DepartureItem
+            v-for="departure in departures"
+            :key="departure.flightNumber"
+            :departure="departure"
+          />
+        </div>
+
+        <DeparturesForm class="px-8 py-4 xl:px-14"/>
       </template>
 
-      <p v-else data-test="notice">
+      <p
+        v-else
+        class="my-14 text-center text-white font-bold"
+        data-test="notice"
+      >
         {{ error ? error : 'There are no departures.' }}
       </p>
+
     </BackgroundContainer>
   </div>
 </template>
@@ -47,6 +56,7 @@ import BarTitle from '@/components/BarTitle.vue'
 import BackgroundContainer from '@/components/BackgroundContainer.vue'
 import LoadingSpinner from '../components/LoadingSpinner.vue'
 import DepartureItem from '@/components/DepartureItem.vue'
+import DeparturesForm from '../components/DeparturesForm.vue'
 
 export default Vue.extend({
   name: 'DeparturesView',
@@ -54,7 +64,8 @@ export default Vue.extend({
     BarTitle,
     BackgroundContainer,
     LoadingSpinner,
-    DepartureItem
+    DepartureItem,
+    DeparturesForm
   },
   computed: {
     ...mapState('departures', ['departures', 'error', 'loading'])

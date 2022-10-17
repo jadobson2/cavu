@@ -10,6 +10,7 @@ module.exports = {
       },
       colors: {
         greyscale: {
+          10: '#DADADA',
           20: '#AEBCCA',
           80: '#464646',
           90: '#1C1C1C'
@@ -21,7 +22,8 @@ module.exports = {
           light: '#EAD550',
           dark: '#DFC42E'
         },
-        blue: '#3677F5'
+        blue: '#3677F5',
+        red: '#D63031'
       }
     }
   },
