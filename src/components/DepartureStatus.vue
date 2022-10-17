@@ -2,6 +2,7 @@
   <div
     class="departure-status inline-flex w-fit rounded-l-lg rounded-r-3xl"
     :class="`departure-status--${statusSlug}`"
+    data-test="departure-status"
   >
     <span class="block ml-3 pl-4 pr-7 py-2 rounded-l-lg rounded-r-3xl bg-white">
     {{ statusText }}

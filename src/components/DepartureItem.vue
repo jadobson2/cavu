@@ -1,9 +1,12 @@
 <template>
-  <article class="
-    departure-item grid items-center gap-1 md:gap-2 xl:gap-3 mb-5 last:mb-0 px-8
-    lg:px-14 py-5 border-2 rounded-xl text-xl xl:text-2xl text-white font-bold
-    whitespace-nowrap
-  ">
+  <article
+    class="
+      departure-item grid items-center gap-1 md:gap-2 xl:gap-3 mb-5 last:mb-0 px-8
+      lg:px-14 py-5 border-2 rounded-xl text-xl xl:text-2xl text-white font-bold
+      whitespace-nowrap
+    "
+    data-test="departure"
+  >
     <span data-label="Departure time:">{{ departureTime }}</span>
     <span class="text-yellow" data-label="City name:">
       {{ departure.arrivalAirport.cityName }}

@@ -54,9 +54,9 @@ import Vue from 'vue'
 import { mapActions, mapState } from 'vuex'
 import BarTitle from '@/components/BarTitle.vue'
 import BackgroundContainer from '@/components/BackgroundContainer.vue'
-import LoadingSpinner from '../components/LoadingSpinner.vue'
+import LoadingSpinner from '@/components/LoadingSpinner.vue'
 import DepartureItem from '@/components/DepartureItem.vue'
-import DeparturesForm from '../components/DeparturesForm.vue'
+import DeparturesForm from '@/components/DeparturesForm.vue'
 
 export default Vue.extend({
   name: 'DeparturesView',
